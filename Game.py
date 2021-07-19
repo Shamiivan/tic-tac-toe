@@ -6,6 +6,7 @@ class Game:
         self.state = ["*"] * 9
         self.counter = 0
         self.winner = "none"
+        self.isOver = False
  
     def display(self):
         matrix = [self.state[i:i+3] for i in range(0,9,3)]
@@ -26,4 +27,6 @@ class Game:
     
     def end(self):
         print("game is over")
-
+        self.isOver = False
+    def updateState(self,index,player):
+        self.state.index = player
