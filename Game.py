@@ -1,15 +1,14 @@
 class Game:
     def __init__(self):
-        self.reset()
-
-    def reset(self):
         self.state = ["*"] * 9
         self.counter = 0
         self.winner = "none"
         self.isOver = False
+        self.player = "X"
  
     def display(self):
         matrix = [self.state[i:i+3] for i in range(0,9,3)]
+        print("==============================================================")
         for row in matrix:
             print(*row,end="\n\n")
     
@@ -28,5 +27,9 @@ class Game:
     def end(self):
         print("game is over")
         self.isOver = False
-    def updateState(self,index,player):
-        self.state.index = player
+    def updateState(self,index):
+        self.state[index]  = self.player
+        if self.player == "X" : 
+            self.player ="O"
+        else: self.player ="X"
+
