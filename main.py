@@ -12,7 +12,7 @@ def startGame():
         game.display()
 
     def endGame():
-        print("Game Over")
+        print("Game Over \n","Winner : ", game.winner)
         restart = input("Would you like to play again? y/n")
         if restart == "n":
             print("Twas a good game we should do it again")
@@ -23,7 +23,6 @@ def startGame():
     while True:         
             if game.isOver == False:
                 play()
-                game.isOver = True
             elif game.isOver == True:
                 endGame()
 startGame()
