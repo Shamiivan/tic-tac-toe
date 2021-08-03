@@ -1,3 +1,4 @@
+import random
 class Game:
     def __init__(self):
         self.state = ["*"] * 9
@@ -5,6 +6,7 @@ class Game:
         self.winner = "none"
         self.isOver = False
         self.player = "X"
+        self.turn = "H"
  
     def display(self):
         matrix = [self.state[i:i+3] for i in range(0,9,3)]
@@ -26,15 +28,27 @@ class Game:
                 self.isOver = True
 
         checkDraw()
+    
+    def alternate(self):
+        if self.turn == "H":
+            self.turn = "C"
+        elif self.player == "C" :
+            self.turn = "H"
+
+        if self.player == "X":
+            self.player = "O"
+        elif self.player == "O":
+            self.player = "X"
+
     def updateState(self,index):
         self.checkWin()
         self.state[index]  = self.player
         self.counter  = self.counter + 1
-        print(self.counter)
 
-        if self.player == "X" : 
-            self.player ="O"
-        else: 
-            self.player ="X"
-            
-        self.checkWin()    
+    def cp(self):
+        return random.randint(0,8) 
+    
+    def validate(self, move):
+       if move > 8 or self.state[move] != "*" :
+            return False
+       else : return True
