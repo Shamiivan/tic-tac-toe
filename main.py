@@ -30,12 +30,12 @@ def startGame():
                 if game.validate(move) == False:
                     print(game.validate(move))
                     raise
-                else: break
+                else: 
+                    game.updateState(move)
+                    game.alternate()
+                    break
              except :
                 print("Bad input", move, game.state,game.validate(move))
-
-             game.updateState(move)
-             game.alternate()
                 
     def endGame():
         print("Game Over \n","Winner : ", game.winner)

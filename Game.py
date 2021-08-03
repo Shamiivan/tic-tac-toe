@@ -32,7 +32,7 @@ class Game:
     def alternate(self):
         if self.turn == "H":
             self.turn = "C"
-        elif self.player == "C" :
+        elif self.turn == "C" :
             self.turn = "H"
 
         if self.player == "X":
@@ -44,6 +44,7 @@ class Game:
         self.checkWin()
         self.state[index]  = self.player
         self.counter  = self.counter + 1
+        self.checkWin()
 
     def cp(self):
         return random.randint(0,8) 
