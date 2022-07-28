@@ -53,3 +53,5 @@ class Game:
        if move > 8 or self.state[move] != "*" :
             return False
        else : return True
+
+print("")
